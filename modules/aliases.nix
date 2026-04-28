@@ -3,10 +3,17 @@
 
 {
   # Modern replacements
-  ls  = "eza --icons=always";
-  ll  = "eza -l --icons=always";
-  la  = "eza -la --icons=always";
-  cat = "bat --plain";
+  ls   = "eza --icons=always";
+  ll   = "eza -l --icons=always";
+  la   = "eza -la --icons=always";
+  cat  = "bat --plain";
+  cd   = "z";
+  du   = "dust";
+  find = "fd";
+  grep = "rg";
+  top  = "btop";
+  tree = "eza --tree --icons=always";
+  cleanup = "brew cleanup && rm -rf ~/Library/Caches/*";
 
   # Git shortcuts
   g  = "git";

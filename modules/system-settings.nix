@@ -17,7 +17,7 @@
         launchanim = false;
         show-recents = false;
         show-process-indicators = true;
-        orientation = "left";
+        orientation = "bottom";
         mru-spaces = false;  # Don't rearrange spaces
       };
 
@@ -49,19 +49,19 @@
 
         # Keyboard settings
         ApplePressAndHoldEnabled = false;        # Enable key repeat
-        InitialKeyRepeat = 15;                   # Fast key repeat
-        KeyRepeat = 2;                           # Very fast key repeat
+        InitialKeyRepeat = 25;                   # Normal key repeat delay
+        KeyRepeat = 5;                           # Normal key repeat rate
         
         # Interface settings
         AppleShowAllExtensions = true;
         AppleShowAllFiles = false;
         
-        # Disable automatic features
-        NSAutomaticCapitalizationEnabled = false;
-        NSAutomaticDashSubstitutionEnabled = false;
-        NSAutomaticPeriodSubstitutionEnabled = false;
-        NSAutomaticQuoteSubstitutionEnabled = false;
-        NSAutomaticSpellingCorrectionEnabled = false;
+        # Automatic features
+        NSAutomaticCapitalizationEnabled = true;
+        NSAutomaticDashSubstitutionEnabled = true;
+        NSAutomaticPeriodSubstitutionEnabled = true;
+        NSAutomaticQuoteSubstitutionEnabled = true;
+        NSAutomaticSpellingCorrectionEnabled = true;
         
         # Window animations
         NSWindowResizeTime = 0.001;
@@ -87,7 +87,7 @@
 
       # Screenshot settings
       screencapture = {
-        location = "~/Pictures/Screenshots";
+        location = "~/Downloads";
         type = "png";
         disable-shadow = true;
       };

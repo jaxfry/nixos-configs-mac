@@ -30,7 +30,7 @@ A declarative macOS system configuration managed with [nix-darwin](https://githu
 - 🎨 **System Configuration**: Dock, Finder, Trackpad, Keyboard, and macOS preferences
 - 📦 **Package Management**: System packages via Nix and GUI apps via Homebrew
 - 🛠️ **Development Tools**: Kubernetes, Docker, Terraform/OpenTofu, and more
-- 🐚 **Shell Configuration**: Zsh with Starship prompt and useful aliases
+- 🐚 **Shell Configuration**: Zsh with Powerlevel10k prompt and useful aliases
 - 📝 **Editor Setup**: NixVim (Neovim) and Cursor IDE with auto-installed extensions
 - 🖥️ **Terminal Emulators**: Fully configured Kitty, Ghostty, and Tabby with Edo theme
 - 🎨 **Theme System**: Custom Edo color theme with semantic colors
@@ -99,7 +99,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ### Step 4: Clone Configuration Repository
 
 ```bash
-git clone https://github.com/jmutai/nixos-configs-mac.git
+git clone https://github.com/JaxFry/nixos-configs-mac.git
 cd nixos-configs-mac
 ```
 
@@ -122,7 +122,7 @@ Edit `flake.nix` and add your hostname(s) to the `hostnames` list at the top of 
 
 ```nix
 hostnames = [
-  "macbook-pro"  # Current hostname
+  "maple"  # Current hostname
   "Your-New-Hostname"     # Add additional hostnames here
 ];
 ```
@@ -130,9 +130,9 @@ hostnames = [
 HostName, LocalHostName and ComputerName can be changed from CLI:
 
 ```bash
-sudo scutil --set HostName macbook-pro-m3
-sudo scutil --set LocalHostName macbook-pro-m3
-sudo scutil --set ComputerName "Mutai's MacBook Pro"
+sudo scutil --set HostName maple
+sudo scutil --set LocalHostName maple
+sudo scutil --set ComputerName "Jaxon's Mac"
 ```
 
 Confirm settings:
@@ -147,9 +147,9 @@ You may see different values, they each serve a slightly different purpose.
 
 | Type           | Description                                         | Example                |
 |----------------|-----------------------------------------------------|------------------------|
-| **HostName**   | Used by network services (e.g., SSH, Terminal prompt). | `macbook-pro.local`    |
-| **LocalHostName** | Used for Bonjour/AirDrop.                         | `macbook-pro`          |
-| **ComputerName**  | Visible name in System Settings → General → Sharing. | `Josphat’s MacBook Pro` |
+| **HostName**   | Used by network services (e.g., SSH, Terminal prompt). | `maple.local`    |
+| **LocalHostName** | Used for Bonjour/AirDrop.                         | `maple`          |
+| **ComputerName**  | Visible name in System Settings → General → Sharing. | `Jaxon's Mac` |
 
 All configuration variables (hostnames, username) are now defined at the top of the `let` block for easy customization.
 
@@ -157,13 +157,13 @@ All configuration variables (hostnames, username) are now defined at the top of 
 Edit `flake.nix` and change the `username` variable at the top of the `let` block:
 
 ```nix
-username = "jkmutai";  # Change to your macOS username
+username = "jaxon";  # Change to your macOS username
 ```
 
 The configuration will automatically use this username throughout the setup.
 
 **Update Git Configuration:**
-Edit `home.nix` and update the git user settings:
+Edit `modules/home/programs/git.nix` and update the git user settings:
 
 ```nix
 programs.git = {
@@ -199,6 +199,14 @@ This will:
 
 ### Step 7: Verify Installation
 
+## MANUAL INSTALL APPS
+The following applications are strictly managed outside of Nix/Homebrew and must be manually installed:
+- Superwhisper
+- Bartender 6
+- Better Display
+- CleanShot X
+- Dropover
+
 After the first build completes, verify everything is working:
 
 ```bash
@@ -231,14 +239,13 @@ This configuration uses:
 - `modules/system-settings.nix`: macOS system settings and preferences
 - `modules/nix-core.nix`: Nix configuration settings
 - `modules/aliases.nix`: Shell aliases (git, kubectl, docker, etc.)
-- `modules/keyboard-remap.nix`: Keyboard remapping configuration
 - `nixvim.nix`: Neovim configuration - plugins, themes, LSP servers
 
 ### Program Configuration Modules
 
 All user programs are configured in `modules/home/programs/`:
 
-- `zsh.nix`: Zsh shell with Starship prompt
+- `zsh.nix`: Zsh shell with Powerlevel10k prompt
 - `cursor.nix`: Cursor IDE with extensions and settings
 - `kitty.nix`: Kitty terminal configuration
 - `ghostty.nix`: Ghostty terminal configuration
@@ -247,7 +254,6 @@ All user programs are configured in `modules/home/programs/`:
 - `bat.nix`: Bat (cat replacement) configuration
 - `fzf.nix`: Fuzzy finder configuration
 - `tmux.nix`: Tmux configuration
-- `starship.nix`: Starship prompt configuration
 - `clock-rs.nix`: Clock-rs menu bar app
 - `antigravity.nix`: Antigravity configuration
 - `htop.nix`: Htop configuration
@@ -272,13 +278,13 @@ All user programs are configured in `modules/home/programs/`:
 ### GUI Applications (via Homebrew Cask)
 
 - **Editors**: Cursor (fully configured), Visual Studio Code, Zed
-- **Browsers**: Brave, Vivaldi, Google Chrome, Microsoft Edge
+- **Browsers**: Brave, Google Chrome, Zen Browser
 - **Terminals**: iTerm2, Ghostty, Tabby
-- **Productivity**: Notion
-- **File Sharing**: Transmission, qBittorrent, Motrix
+- **Productivity**: Notion, Raycast
+- **File Sharing**: Transmission, Motrix
 - **Containers**: Docker Desktop, Podman Desktop
-- **System Tools**: Karabiner Elements, KeepassXC
-- **VPN**: Tailscale, Tunnelblick, Pritunl
+- **System Tools**: Karabiner Elements, KeepassXC, Bitwarden
+- **VPN**: Tailscale, Tunnelblick
 - **Database**: Beekeeper Studio
 - **Remote Access**: Microsoft Remote Desktop
 - **Fonts**: SF Mono, SF Pro, Maple Mono, SF Symbols
@@ -288,15 +294,15 @@ All user programs are configured in `modules/home/programs/`:
 - **Kubernetes**: kubectl, k9s, Lens, Kubernetes Helm, Kustomize
 - **Containers**: Podman, podman-compose
 - **Infrastructure**: OpenTofu, Terragrunt, Ansible, Terraform Docs, TFLint, Infracost
-- **Security Scanning**: Checkov, TFSec, Terrascan, Trivy
+- **Security Scanning**: TFSec, Terrascan, Trivy
 - **Cloud**: Google Cloud SDK (with GKE auth plugin)
 - **Databases**: PostgreSQL, MariaDB
 - **VPN**: OpenVPN, Tailscale, NetBird
-- **Tools**: HCL Edit, Pre-commit, Graphviz, TFUpdate
+- **Tools**: HCL Edit, Graphviz, TFUpdate
 
 ### Shell Configuration
 
-- **Zsh** with **Starship** prompt (modern, fast, and customizable)
+- **Zsh** with **Powerlevel10k** prompt (fast, compact, and context-aware)
 - **Plugins**: git, docker, kubectl, terraform, macos, fzf, and more
 - **Aliases**: Git shortcuts, kubectl aliases, Docker/Podman shortcuts, Terraform/OpenTofu shortcuts
 - **Modern Tools**: eza (ls), bat (cat), fzf (fuzzy finder), tmux, zellij
@@ -370,14 +376,14 @@ sudo darwin-rebuild switch --flake .
 
 ### Useful Aliases
 
-See `home.nix` for a complete list, but here are some highlights:
+See `modules/aliases.nix` for the complete alias list, but here are some highlights:
 
 **Git:**
 
 - `g` = git
 - `gs` = git status
 - `ga` = git add
-- `gc` = git commit
+- `gcm` = git commit -m
 - `gp` = git push
 
 **Kubernetes:**
@@ -415,17 +421,17 @@ environment.systemPackages = with pkgs; [
 ```
 
 **User packages** (specific to your user):
-Edit `home.nix` and add to `home.packages`:
+Edit `modules/packages.nix` and add to `home-manager.users.${config.system.primaryUser}.home.packages`:
 
 ```nix
-home.packages = with pkgs; [
+home-manager.users.${config.system.primaryUser}.home.packages = with pkgs; [
   # ... existing packages
   your-package-name
 ];
 ```
 
 **Homebrew Casks** (GUI applications):
-Edit `modules/homebrew.nix` and add to `homebrew.casks`:
+Edit `modules/packages.nix` and add to `homebrew.casks`:
 
 ```nix
 homebrew = {
@@ -446,7 +452,7 @@ update
 
 Edit `modules/home/programs/zsh.nix` for shell configuration:
 
-- **Starship prompt**: Configured in `modules/home/programs/starship.nix`
+- **Powerlevel10k prompt**: Configured in `modules/home/programs/zsh.nix` (`~/.p10k.zsh` is managed by Home Manager)
 - **Custom shell functions**: Add to `programs.zsh.initExtra`
 
 **Shell aliases** are in `modules/aliases.nix`:
@@ -456,7 +462,7 @@ Edit `modules/home/programs/zsh.nix` for shell configuration:
 
 ### Changing Git Configuration
 
-Edit `home.nix` under `programs.git.settings.user`:
+Edit `modules/home/programs/git.nix` under `programs.git.settings.user`:
 
 - **Name**: Change `user.name` to your git username
 - **Email**: Change `user.email` to your git email
@@ -508,12 +514,11 @@ nixos-configs-mac/
 │   ├── packages.nix                # System packages (Nix) and Homebrew
 │   ├── system-settings.nix         # macOS system settings and preferences
 │   ├── nix-core.nix                # Nix configuration settings
-│   ├── keyboard-remap.nix          # Keyboard remapping configuration
 │   ├── aliases.nix                 # Shell aliases (git, kubectl, docker, etc.)
 │   └── home/                      # Home Manager program configurations
 │       ├── theme.nix                  # Edo color theme definition
 │       └── programs/                 # Individual program configurations
-│           ├── zsh.nix                  # Zsh with Starship
+│           ├── zsh.nix                  # Zsh with Powerlevel10k
 │           ├── cursor.nix              # Cursor IDE configuration
 │           ├── kitty.nix               # Kitty terminal
 │           ├── ghostty.nix             # Ghostty terminal
@@ -522,7 +527,6 @@ nixos-configs-mac/
 │           ├── bat.nix                # Bat configuration
 │           ├── fzf.nix                # Fuzzy finder
 │           ├── tmux.nix               # Tmux
-│           ├── starship.nix          # Starship prompt
 │           ├── clock-rs.nix          # Clock-rs menu bar app
 │           ├── antigravity.nix        # Antigravity
 │           └── htop.nix               # Htop
@@ -664,8 +668,8 @@ sudo darwin-rebuild switch --rollback <generation-number>
 ## Personal notes
 
 ```bash
-ln -sfn ~/.cheats/.p10k.zsh ~/.p10k.zsh
-ln -sfn ~/.cheats/.p10k.zsh ~/.config/p10k.zsh
+# Powerlevel10k is managed declaratively via Home Manager.
+# Keep custom SSH links if you use ~/.cheats:
 rm -rf ~/.ssh
 ln -sfn ~/.cheats/.ssh/ ~/.ssh
 ```

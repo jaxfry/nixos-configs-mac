@@ -450,7 +450,7 @@ let
       - Terragrunt: `~/Library/Mobile Documents/com~apple~CloudDocs/projects/c4geeks/infra/terragrunt.hcl`
       - Images: `~/Library/Mobile Documents/com~apple~CloudDocs/projects/c4geeks/infra/images.json`
     - **Network**: `public` (44a581e7-9dd8-4802-94da-810f59127558)
-    - **Keypair**: `jkmutai-mac`
+    - **Keypair**: `jaxon-mac`
 
     ### Quick launch (preferred)
     ```bash
@@ -524,7 +524,7 @@ let
     ## Git commits
     - Write clear, concise commit messages summarizing changes
     - NEVER add "Co-Authored-By" lines or any AI/Claude attribution to commits
-    - Only my name (jmutai) should appear in git history — no AI contributor traces anywhere
+    - Only my name (JaxFry) should appear in git history — no AI contributor traces anywhere
 
     ## Safety rules
     - Never commit `.env`, credentials, or secrets files

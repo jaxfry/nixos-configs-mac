@@ -200,7 +200,7 @@ in
           },
           "options": {
             "nix-darwin": {
-              "expr": "(builtins.getFlake \"''${workspaceFolder}\").darwinConfigurations.macbook-pro-3.options"
+              "expr": "(builtins.getFlake \"''${workspaceFolder}\").darwinConfigurations.maple.options"
             }
           }
         }

@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
-
-let
-  system = pkgs.stdenv.hostPlatform.system;
-in {
+{
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.permittedInsecurePackages = [
+    # Retained for currently used GUI tooling still depending on this Electron build.
     "electron-36.9.5"
   ];
 
@@ -42,6 +40,7 @@ in {
     fish
     direnv
     obsidian
+    bitwarden-cli
 
     # Note-taking and documentation
     joplin-desktop
@@ -72,6 +71,11 @@ in {
     tmux
     iproute2mac
     fd
+    zoxide
+    du-dust # dust package in nix
+    delta
+    tealdeer # tldr client in rust
+    p7zip
 
     # File management
     ranger
@@ -80,11 +84,9 @@ in {
     flameshot
 
     # languages and runtimes
-    python3
-    go
-    pipx
     uv
     yarn
+    nodejs_22
     jq
     yq
     gnused
@@ -170,7 +172,6 @@ in {
       "macos-trash"
       "git-lfs"
       "cmake"
-      "nmap"
       "node"
       "pngquant"
       "oxipng"
@@ -200,21 +201,39 @@ in {
     casks = [
       "cursor"
       "visual-studio-code"
-      "vivaldi"
+      "intellij-idea-ce"
+      "autodesk-fusion"
+      "raycast"
+      "bitwarden"
+      "zen-browser"
       "google-chrome"
       "brave-browser"
-      "microsoft-edge"
       "iterm2"
       "notion"
-      "transmission"
-      "docker-desktop"
-      "podman-desktop"
+      "qbittorrent"
+      "orbstack"
+      "dockdoor"
+      "cloudflare-warp"
+      "burp-suite"
+      "angry-ip-scanner"
+      "metasploit"
+      "wireshark-app"
+      "iina"
+      "handbrake"
+      "audacity"
+      "obs"
+      "davinci-resolve"
+      "sdrpp"
+      "sdrangel"
+      "bambu-studio"
+      "jdownloader"
+      "iloader"
+      "prism-launcher"
       "karabiner-elements"
       "tailscale-app"
       "tunnelblick"
       "beekeeper-studio"
       "microsoft-remote-desktop"
-      "pritunl"
       "ghostty"
       "zed"
       "motrix"
@@ -224,11 +243,8 @@ in {
       "font-sf-pro"
       "sf-symbols"
       "tabby"
-      "virtualbox"
       "spotify"
       "keepassxc"
-      "vnc-viewer"
-      "tigervnc"
       "balenaetcher"
       "netbirdio/tap/netbird-ui"
       "mark-text"
@@ -240,10 +256,17 @@ in {
       # "dia"
     ];
 
+    masApps = {
+      "The Unarchiver" = 425424353;
+      "Amphetamine" = 937984704;
+      "rcmd" = 1596283165;
+      "Betternet VPN" = 1028905953;
+      "Xcode" = 497799835;
+    };
+
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
   };
 
 }
-

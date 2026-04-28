@@ -7,7 +7,7 @@ user_invocable: true
 # Nix-Darwin Configuration Manager
 
 You are managing a nix-darwin + Home Manager configuration at:
-`/Users/jkmutai/Library/Mobile Documents/com~apple~CloudDocs/projects/nixos-configs-mac`
+`/Users/jaxon/Documents/Coding/nixos-configs-mac`
 
 ## What you can do
 
@@ -63,7 +63,7 @@ Always rebuild:
 git add <new-file>
 
 # Rebuild:
-cd "/Users/jkmutai/Library/Mobile Documents/com~apple~CloudDocs/projects/nixos-configs-mac"
+cd "/Users/jaxon/Documents/Coding/nixos-configs-mac"
 sudo darwin-rebuild switch --flake .
 ```
 

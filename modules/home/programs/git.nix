@@ -3,21 +3,30 @@
 {
   programs.git = {
     enable = true;
+    
+    # Enables git-delta
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        side-by-side = true;
+        line-numbers = true;
+      };
+    };
 
     settings = {
       user = {
-        name = "jmutai";
-        email = "josphatkmutai@gmail.com";
+        name = "JaxFry";
+        email = "jaxfry999@gmail.com";
       };
 
       alias = {
-        st = "status";
-        co = "checkout";
-        br = "branch";
-        ci = "commit";
-        unstage = "reset HEAD --";
-        last = "log -1 HEAD";
-        visual = "log --graph --oneline --all";
+        lg     = "log --oneline --graph --decorate --all";
+        st     = "status -sb";
+        undo   = "reset --soft HEAD~1";
+        wip    = "commit -am 'WIP'";
+        pushf  = "push --force-with-lease";
+        recent = "branch --sort=-committerdate --format='%(refname:short)' | head -10";
       };
 
       init = {
@@ -25,7 +34,20 @@
       };
 
       pull = {
-        rebase = false;
+        rebase = true;
+      };
+
+      merge = {
+        conflictstyle = "diff3";
+      };
+      
+      diff = {
+        colorMoved = "default";
+      };
+      
+      push = {
+        autoSetupRemote = true;
+        default = "current";
       };
 
       core = {
@@ -33,6 +55,25 @@
         hooksPath = "~/.config/git/hooks";
       };
     };
+    
+    # Add a global ignores array
+    ignores = [
+      ".DS_Store"
+      "._*"
+      ".Spotlight-V100"
+      ".Trashes"
+      ".env"
+      ".env.local"
+      ".env.*.local"
+      "*.pem"
+      "*.key"
+      ".vscode/"
+      ".idea/"
+      "*.swp"
+      ".direnv/"
+      "*.log"
+      ".cache/"
+    ];
   };
 }
 

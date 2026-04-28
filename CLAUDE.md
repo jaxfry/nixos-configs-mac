@@ -2,7 +2,7 @@
 
 ## Overview
 Declarative macOS system config using nix-darwin + Home Manager + Flakes on Apple Silicon.
-User: `jkmutai`, Hosts: `macbook-pro-3`, `jkm-macbook-pro-4`.
+User: `jaxon`, Hosts: `maple`.
 
 ## Build Commands
 - `update` — rebuild from current config (alias in shell)
@@ -28,7 +28,7 @@ User: `jkmutai`, Hosts: `macbook-pro-3`, `jkm-macbook-pro-4`.
 - **New program**: Create `modules/home/programs/foo.nix`, add import to `home.nix`
 - **Homebrew GUI apps** go in `casks`, CLI tools in `brews`, custom sources need a `tap`
 - **System packages** (all users): `environment.systemPackages` in packages.nix
-- **User packages** (jkmutai only): `home-manager.users.*.home.packages` in packages.nix
+- **User packages** (jaxon only): `home-manager.users.*.home.packages` in packages.nix
 
 ## Conventions
 - Commit style: lowercase, imperative, concise ("add X package", "fix Y", "rm Z")

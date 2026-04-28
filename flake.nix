@@ -16,12 +16,11 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.url = "github:ryantm/agenix";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, agenix, nixvim}:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim}:
   let
     # ============================================================================
     # Configuration Variables - Edit these to customize your setup
@@ -31,15 +30,14 @@
     # Add your hostnames here - darwin-rebuild will automatically use the correct one
     # You can check your hostname with: hostname
     hostnames = [
-      "macbook-pro-3"
-      "jkm-macbook-pro-4"
+      "maple"
       # Current hostname: scutil --get HostName
       # Add more hostnames here as needed
     ];
 
     # Username configuration
     # Change this to match your macOS username
-    username = "jkmutai";
+    username = "jaxon";
     userHome = "/Users/${username}";
 
     # ============================================================================
