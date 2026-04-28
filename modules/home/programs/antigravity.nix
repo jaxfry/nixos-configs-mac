@@ -55,7 +55,6 @@ let
     "hashicorp.terraform"  # Official Terraform extension with HCL support
     "4ops.terraform"  # Additional Terraform features
     # "run-at-scale.terragrunt"  # Extension doesn't exist or not available
-    "ms-kubernetes-tools.vscode-kubernetes-tools"  # Kubernetes support (useful with Terraform)
 
     # Utilities
     # "ms-vscode.remote-repositories"  # Not available as separate extension (built into Cursor)

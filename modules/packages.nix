@@ -31,8 +31,6 @@
 
     # Development Tools
     gh
-    docker-compose
-    lazydocker
     devbox
 
     # Productivity
@@ -109,7 +107,6 @@
     packer
 
     # VPN
-    openvpn
   ]);
 
   home-manager.users.${config.system.primaryUser}.home.packages = with pkgs; [
@@ -136,12 +133,8 @@
     # Productivity
 
     # Containerization
-    kubectl
-    kubernetes-helm
-    kustomize
 
     # Infrastructure as Code
-    crossplane-cli
     ansible
     opentofu
     terragrunt
@@ -149,21 +142,11 @@
     tflint
     infracost
     # checkov  # Temporarily disabled due to pyarrow build issue
-    tfsec
-    terrascan
-    hcledit
     # pre-commit  # Temporarily disabled due to Swift build issues with clang 21.1.8
     gitleaks
-    trivy
-    graphviz
-    tfupdate
 
 
     # Container tools
-    podman
-    podman-compose
-    k9s
-    lens
 
     # Cloud CLI tools; gcloud components list
     awscli
@@ -174,7 +157,6 @@
     mariadb
 
     # VPN clients
-    openvpn    # OpenVPN CLI
     tailscale  # Tailscale CLI
   ];
 
@@ -197,7 +179,6 @@
       "just"
       "qemu"
       "grpcurl"
-      "netbirdio/tap/netbird"
       "yt-dlp"
       "maven"
       "openjdk"
@@ -254,9 +235,6 @@
       "prism-launcher"
       "karabiner-elements"
       "tailscale-app"
-      "tunnelblick"
-      "beekeeper-studio"
-      "microsoft-remote-desktop"
       "ghostty"
       "zed"
       "motrix"
@@ -269,7 +247,6 @@
       "spotify"
       "keepassxc"
       "balenaetcher"
-      "netbirdio/tap/netbird-ui"
       "mark-text"
       "manaflow-ai/cmux/cmux"
       "antigravity"

@@ -44,7 +44,6 @@ in
       plugins = [
         "git"
         "docker"
-        "kubectl"
         "terraform"
         "macos"
         "colored-man-pages"
@@ -53,7 +52,6 @@ in
         "argocd"
         "gcloud"
         "fzf"
-        "kubectx"
         "sudo"
       ];
     };
@@ -82,7 +80,6 @@ in
       export EDITOR="nvim"
       export VISUAL="nvim"
 
-      # Krew (kubectl plugin manager)
       # First run: setup_krew && install_krew_plugins functions
       export PATH="''${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 
@@ -155,7 +152,6 @@ in
       goenv
       nodenv
       rust_version
-      kubecontext
       terraform
       aws
       gcloud
@@ -197,25 +193,20 @@ in
     typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
 
     # Cloud/IaC context shown only when relevant commands are typed.
-    typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc'
     typeset -g POWERLEVEL9K_TERRAFORM_SHOW_ON_COMMAND='terraform|tofu|terragrunt'
     typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|terraform|tofu|terragrunt'
     typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gsutil|terraform|tofu|terragrunt'
 
-    typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='${c.teal}'
     typeset -g POWERLEVEL9K_TERRAFORM_FOREGROUND='${c.mauve}'
     typeset -g POWERLEVEL9K_AWS_FOREGROUND='${c.peach}'
     typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='${c.sapphire}'
 
     # Make risky contexts visually loud.
-    typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
       '*prod*' PROD
       '*production*' PROD
       '*staging*' STAGING
       '*' DEFAULT
     )
-    typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND='${c.red}'
-    typeset -g POWERLEVEL9K_KUBECONTEXT_STAGING_FOREGROUND='${c.yellow}'
 
     # User@host context.
     typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'

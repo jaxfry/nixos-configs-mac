@@ -15,6 +15,7 @@
     ./modules/home/programs/iterm2.nix
     ./modules/home/programs/tabby.nix
     ./modules/home/programs/cursor.nix
+    ./modules/home/programs/vscode.nix
     ./modules/home/programs/antigravity.nix
     ./modules/home/programs/claude.nix
   ];

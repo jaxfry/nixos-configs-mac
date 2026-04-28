@@ -29,7 +29,7 @@ A declarative macOS system configuration managed with [nix-darwin](https://githu
 
 - 🎨 **System Configuration**: Dock, Finder, Trackpad, Keyboard, and macOS preferences
 - 📦 **Package Management**: System packages via Nix and GUI apps via Homebrew
-- 🛠️ **Development Tools**: Kubernetes, Docker, Terraform/OpenTofu, and more
+- 🛠️ **Development Tools**: Docker (via OrbStack), Terraform/OpenTofu, and more
 - 🐚 **Shell Configuration**: Zsh with Powerlevel10k prompt and useful aliases
 - 📝 **Editor Setup**: NixVim (Neovim) and Cursor IDE with auto-installed extensions
 - 🖥️ **Terminal Emulators**: Fully configured Kitty, Ghostty, and Tabby with Edo theme
@@ -218,7 +218,6 @@ update
 # Check if packages are available
 which nvim
 which git
-which kubectl
 
 # Verify shell configuration
 echo $SHELL  # Should show zsh
@@ -240,7 +239,7 @@ This configuration uses:
 - `modules/packages.nix`: System packages installed via Nix and Homebrew
 - `modules/system-settings.nix`: macOS system settings and preferences
 - `modules/nix-core.nix`: Nix configuration settings
-- `modules/aliases.nix`: Shell aliases (git, kubectl, docker, etc.)
+- `modules/aliases.nix`: Shell aliases (git, docker, etc.)
 - `nixvim.nix`: Neovim configuration - plugins, themes, LSP servers
 
 ### Program Configuration Modules
@@ -268,7 +267,7 @@ All user programs are configured in `modules/home/programs/`:
 - **Communication**: Slack, Zoom, Discord
 - **Terminals**: Kitty, Alacritty (configured: Kitty, Ghostty, Tabby)
 - **Browsers**: Firefox
-- **Development**: GitHub CLI, Docker Compose, Lazydocker, Devbox
+- **Development**: GitHub CLI, Devbox
 - **Productivity**: Obsidian, Joplin Desktop, LazyGit
 - **Editors**: Neovim, Vim, Nix IDE tools (nil, nixd, nixpkgs-fmt)
 - **CLI Tools**: Git, curl, wget, tree, ripgrep, fzf, bat, eza, tmux, zellij
@@ -279,34 +278,28 @@ All user programs are configured in `modules/home/programs/`:
 
 ### GUI Applications (via Homebrew Cask)
 
-- **Editors**: Cursor (fully configured), Visual Studio Code, Zed
+- **Editors**: Cursor and Visual Studio Code (fully configured), Zed
 - **Browsers**: Brave, Google Chrome, Zen Browser
 - **Terminals**: iTerm2, Ghostty, Tabby
 - **Productivity**: Notion, Raycast
-- **File Sharing**: Transmission, Motrix
-- **Containers**: Docker Desktop, Podman Desktop
+- **File Sharing**: qBittorrent, Motrix
+- **Containers**: OrbStack
 - **System Tools**: Karabiner Elements, KeepassXC, Bitwarden
-- **VPN**: Tailscale, Tunnelblick
-- **Database**: Beekeeper Studio
-- **Remote Access**: Microsoft Remote Desktop
+- **VPN**: Tailscale
 - **Fonts**: SF Mono, SF Pro, Maple Mono, SF Symbols
 
 ### Development Tools (via Home Manager)
 
-- **Kubernetes**: kubectl, k9s, Lens, Kubernetes Helm, Kustomize
-- **Containers**: Podman, podman-compose
 - **Infrastructure**: OpenTofu, Terragrunt, Ansible, Terraform Docs, TFLint, Infracost
-- **Security Scanning**: TFSec, Terrascan, Trivy
 - **Cloud**: Google Cloud SDK (with GKE auth plugin)
 - **Databases**: PostgreSQL, MariaDB
-- **VPN**: OpenVPN, Tailscale, NetBird
-- **Tools**: HCL Edit, Graphviz, TFUpdate
+- **VPN**: Tailscale
 
 ### Shell Configuration
 
 - **Zsh** with **Powerlevel10k** prompt (fast, compact, and context-aware)
-- **Plugins**: git, docker, kubectl, terraform, macos, fzf, and more
-- **Aliases**: Git shortcuts, kubectl aliases, Docker/Podman shortcuts, Terraform/OpenTofu shortcuts
+- **Plugins**: git, docker, terraform, macos, fzf, and more
+- **Aliases**: Git shortcuts, Docker shortcuts, Terraform/OpenTofu shortcuts
 - **Modern Tools**: eza (ls), bat (cat), fzf (fuzzy finder), tmux, zellij
 - **Configuration**: Modular setup in `modules/home/programs/zsh.nix`
 
@@ -319,13 +312,15 @@ All user programs are configured in `modules/home/programs/`:
 - **LSP**: Nix (nil-ls), Lua (lua-ls)
 - **Features**: Syntax highlighting, file tree, fuzzy finder, status bar
 
-#### Cursor IDE
+#### Cursor IDE & Visual Studio Code
 
-- **Auto-installed Extensions**: Python, Go, Rust, Prettier, ESLint, GitLens, Terraform, Kubernetes, and more
+Both Cursor and VS Code are managed declaratively to share an identical, robust setup:
+
+- **Auto-installed Extensions**: Python, Go, Rust, Prettier, ESLint, GitLens, Terraform, and more
 - **Font**: SF Mono for editor, Nerd Fonts for terminal
-- **Theme**: Cursor Dark Midnight
+- **Theme**: Cursor Dark Midnight (Cursor) / Catppuccin Mocha (VS Code)
 - **Features**: Format on save, bracket pair colorization, minimap, and more
-- **Configuration**: Managed in `modules/home/programs/cursor.nix`
+- **Configuration**: Managed in `modules/home/programs/cursor.nix` and `modules/home/programs/vscode.nix`
 
 ### Terminal Emulators
 
@@ -388,19 +383,11 @@ See `modules/aliases.nix` for the complete alias list, but here are some highlig
 - `gcm` = git commit -m
 - `gp` = git push
 
-**Kubernetes:**
 
-- `k` = kubectl
-- `kgp` = kubectl get pods
-- `kl` = kubectl logs
-- `kexec` = kubectl exec -it
-
-**Docker/Podman:**
+**Docker:**
 
 - `d` = docker
 - `dc` = docker-compose
-- `p` = podman
-- `pc` = podman-compose
 
 **Terraform/OpenTofu:**
 
@@ -516,12 +503,13 @@ nixos-configs-mac/
 │   ├── packages.nix                # System packages (Nix) and Homebrew
 │   ├── system-settings.nix         # macOS system settings and preferences
 │   ├── nix-core.nix                # Nix configuration settings
-│   ├── aliases.nix                 # Shell aliases (git, kubectl, docker, etc.)
+│   ├── aliases.nix                 # Shell aliases (git, docker, etc.)
 │   └── home/                      # Home Manager program configurations
 │       ├── theme.nix                  # Edo color theme definition
 │       └── programs/                 # Individual program configurations
 │           ├── zsh.nix                  # Zsh with Powerlevel10k
 │           ├── cursor.nix              # Cursor IDE configuration
+│           ├── vscode.nix              # VS Code declarative setup
 │           ├── kitty.nix               # Kitty terminal
 │           ├── ghostty.nix             # Ghostty terminal
 │           ├── tabby.nix               # Tabby terminal
@@ -671,9 +659,6 @@ sudo darwin-rebuild switch --rollback <generation-number>
 
 ```bash
 # Powerlevel10k is managed declaratively via Home Manager.
-# Keep custom SSH links if you use ~/.cheats:
-rm -rf ~/.ssh
-ln -sfn ~/.cheats/.ssh/ ~/.ssh
 ```
 
 Disable iPhone apps showing in Spotlight search:
