@@ -29,7 +29,7 @@ A declarative macOS system configuration managed with [nix-darwin](https://githu
 
 - 🎨 **System Configuration**: Dock, Finder, Trackpad, Keyboard, and macOS preferences
 - 📦 **Package Management**: System packages via Nix and GUI apps via Homebrew
-- 🛠️ **Development Tools**: Docker (via OrbStack), Terraform/OpenTofu, and more
+- 🛠️ **Development Tools**: Docker (via OrbStack), and more
 - 🐚 **Shell Configuration**: Zsh with Powerlevel10k prompt and useful aliases
 - 📝 **Editor Setup**: NixVim (Neovim) and Cursor IDE with auto-installed extensions
 - 🖥️ **Terminal Emulators**: Fully configured Kitty, Ghostty, and Tabby with Edo theme
@@ -290,7 +290,7 @@ All user programs are configured in `modules/home/programs/`:
 
 ### Development Tools (via Home Manager)
 
-- **Infrastructure**: OpenTofu, Terragrunt, Ansible, Terraform Docs, TFLint, Infracost
+- **Infrastructure**: Ansible
 - **Cloud**: Google Cloud SDK (with GKE auth plugin)
 - **Databases**: PostgreSQL, MariaDB
 - **VPN**: Tailscale
@@ -298,8 +298,8 @@ All user programs are configured in `modules/home/programs/`:
 ### Shell Configuration
 
 - **Zsh** with **Powerlevel10k** prompt (fast, compact, and context-aware)
-- **Plugins**: git, docker, terraform, macos, fzf, and more
-- **Aliases**: Git shortcuts, Docker shortcuts, Terraform/OpenTofu shortcuts
+- **Plugins**: git, docker, macos, fzf, and more
+- **Aliases**: Git shortcuts, Docker shortcuts
 - **Modern Tools**: eza (ls), bat (cat), fzf (fuzzy finder), tmux, zellij
 - **Configuration**: Modular setup in `modules/home/programs/zsh.nix`
 
@@ -316,7 +316,7 @@ All user programs are configured in `modules/home/programs/`:
 
 Both Cursor and VS Code are managed declaratively to share an identical, robust setup:
 
-- **Auto-installed Extensions**: Python, Go, Rust, Prettier, ESLint, GitLens, Terraform, and more
+- **Auto-installed Extensions**: Python, Go, Rust, Prettier, ESLint, GitLens, and more
 - **Font**: SF Mono for editor, Nerd Fonts for terminal
 - **Theme**: Cursor Dark Midnight (Cursor) / Catppuccin Mocha (VS Code)
 - **Features**: Format on save, bracket pair colorization, minimap, and more
@@ -389,11 +389,6 @@ See `modules/aliases.nix` for the complete alias list, but here are some highlig
 - `d` = docker
 - `dc` = docker-compose
 
-**Terraform/OpenTofu:**
-
-- `tf` = tofu
-- `tg` = terragrunt
-- `tgaa` = terragrunt apply -auto-approve
 
 ## Customization
 

@@ -44,10 +44,8 @@ in
       plugins = [
         "git"
         "docker"
-        "terraform"
         "macos"
         "colored-man-pages"
-        "opentofu"
         "ansible"
         "argocd"
         "gcloud"
@@ -152,7 +150,6 @@ in
       goenv
       nodenv
       rust_version
-      terraform
       aws
       gcloud
       context
@@ -193,11 +190,7 @@ in
     typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
 
     # Cloud/IaC context shown only when relevant commands are typed.
-    typeset -g POWERLEVEL9K_TERRAFORM_SHOW_ON_COMMAND='terraform|tofu|terragrunt'
-    typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|terraform|tofu|terragrunt'
-    typeset -g POWERLEVEL9K_GCLOUD_SHOW_ON_COMMAND='gcloud|gsutil|terraform|tofu|terragrunt'
 
-    typeset -g POWERLEVEL9K_TERRAFORM_FOREGROUND='${c.mauve}'
     typeset -g POWERLEVEL9K_AWS_FOREGROUND='${c.peach}'
     typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='${c.sapphire}'
 

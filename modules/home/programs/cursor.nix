@@ -52,10 +52,6 @@ let
     # Nix
     "jnoortheen.nix-ide"
 
-    # Terraform & Terragrunt
-    "hashicorp.terraform"  # Official Terraform extension with HCL support
-    "4ops.terraform"  # Additional Terraform features
-    # "run-at-scale.terragrunt"  # Extension doesn't exist or not available
 
     # Utilities
     # "ms-vscode.remote-repositories"  # Not available as separate extension (built into Cursor)
@@ -205,16 +201,6 @@ in
           }
         }
       },
-      "[terraform]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2
-      },
-      "[hcl]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2
-      },
       "[yaml]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true
@@ -290,9 +276,6 @@ in
         // Nix
         "jnoortheen.nix-ide",
 
-        // Terraform & Terragrunt
-        "hashicorp.terraform",
-        "4ops.terraform",
 
         // Utilities
         "github.copilot",

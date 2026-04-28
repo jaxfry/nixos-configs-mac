@@ -136,11 +136,6 @@
 
     # Infrastructure as Code
     ansible
-    opentofu
-    terragrunt
-    terraform-docs
-    tflint
-    infracost
     # checkov  # Temporarily disabled due to pyarrow build issue
     # pre-commit  # Temporarily disabled due to Swift build issues with clang 21.1.8
     gitleaks

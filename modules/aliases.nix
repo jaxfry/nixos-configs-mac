@@ -31,23 +31,6 @@
   # Utilities
   h     = "htop";
 
-  # Terraform/OpenTofu shortcuts
-  tf    = "tofu";
-  tfi   = "tofu init";
-  tg    = "terragrunt";
-  tfa   = "tofu apply";
-  tfp   = "tofu plan";
-  tgi   = "terragrunt init";
-  tgp   = "terragrunt plan";
-  tga   = "terragrunt apply";
-  tgaa  = "terragrunt apply -auto-approve";
-  tgri  = "terragrunt run --all init";
-  tgrp  = "terragrunt run --all plan";
-  tgra  = "terragrunt run --all apply";
-  tgraa = "terragrunt run --all --non-interactive apply";
-  tgd   = "terragrunt destroy";
-  tgda  = "terragrunt destroy -auto-approve";
-
   # Docker aliases
   d      = "docker";
   dc     = "docker-compose";

@@ -49,9 +49,6 @@ let
     # Nix
     "jnoortheen.nix-ide"
 
-    # Terraform & Kubernetes
-    "hashicorp.terraform"
-    "4ops.terraform"
   ];
 in
 {
@@ -170,16 +167,6 @@ in
             ]
           }
         }
-      },
-      "[terraform]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2
-      },
-      "[hcl]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2
       },
       "[yaml]": {
         "editor.tabSize": 2,
