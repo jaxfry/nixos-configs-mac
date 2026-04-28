@@ -1,4 +1,7 @@
 {
+  # Enable system-level zsh (needed to hook into nix-daemon)
+  programs.zsh.enable = true;
+
   # Nix settings
   nix = {
     settings = {
