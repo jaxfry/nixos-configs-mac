@@ -18,6 +18,7 @@
     ./modules/home/programs/vscode.nix
     ./modules/home/programs/antigravity.nix
     ./modules/home/programs/claude.nix
+    ./modules/home/programs/hazel.nix
   ];
 
   # Enable nix-index for command-not-found and comma

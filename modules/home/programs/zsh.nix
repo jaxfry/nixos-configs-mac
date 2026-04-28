@@ -195,11 +195,24 @@ in
     typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='${c.sapphire}'
 
     # Make risky contexts visually loud.
+    typeset -g POWERLEVEL9K_AWS_CLASSES=(
       '*prod*' PROD
       '*production*' PROD
       '*staging*' STAGING
       '*' DEFAULT
     )
+    typeset -g POWERLEVEL9K_GCLOUD_CLASSES=(
+      '*prod*' PROD
+      '*production*' PROD
+      '*staging*' STAGING
+      '*' DEFAULT
+    )
+    typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND='${c.red}'
+    typeset -g POWERLEVEL9K_AWS_STAGING_FOREGROUND='${c.yellow}'
+    typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='${c.peach}'
+    typeset -g POWERLEVEL9K_GCLOUD_PROD_FOREGROUND='${c.red}'
+    typeset -g POWERLEVEL9K_GCLOUD_STAGING_FOREGROUND='${c.yellow}'
+    typeset -g POWERLEVEL9K_GCLOUD_DEFAULT_FOREGROUND='${c.sapphire}'
 
     # User@host context.
     typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'

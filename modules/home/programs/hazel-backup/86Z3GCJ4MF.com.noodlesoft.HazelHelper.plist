@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>345</real>
+	<key>NSWindow Frame NSSpellCheckerSubstitutionsPanel2</key>
+	<string>692 403 348 141 0 0 1680 1020 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>872 419 620 398 0 0 1680 1020 </string>
+</dict>
+</plist>

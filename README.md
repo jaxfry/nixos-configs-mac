@@ -206,7 +206,7 @@ The following applications are strictly managed outside of Nix/Homebrew and must
 - Better Display
 - CleanShot X
 - Dropover
-- Hazel
+- Hazel (app install only; rules/preferences restored from nix-managed backup)
 - Cold Turkey Blocker
 
 After the first build completes, verify everything is working:
@@ -257,6 +257,7 @@ All user programs are configured in `modules/home/programs/`:
 - `tmux.nix`: Tmux configuration
 - `clock-rs.nix`: Clock-rs menu bar app
 - `antigravity.nix`: Antigravity configuration
+- `hazel.nix`: Hazel rules/preferences restore (license excluded)
 - `htop.nix`: Htop configuration
 - `theme.nix`: Edo color theme definition
 
@@ -264,16 +265,16 @@ All user programs are configured in `modules/home/programs/`:
 
 ### System Packages (via Nix)
 
-- **Communication**: Slack, Zoom, Discord
-- **Terminals**: Kitty, Alacritty (configured: Kitty, Ghostty, Tabby)
-- **Browsers**: Firefox
-- **Development**: GitHub CLI, Devbox
-- **Productivity**: Obsidian, Joplin Desktop, LazyGit
-- **Editors**: Neovim, Vim, Nix IDE tools (nil, nixd, nixpkgs-fmt)
-- **CLI Tools**: Git, curl, wget, tree, ripgrep, fzf, bat, eza, tmux, zellij
-- **System Tools**: htop, btop, bottom, neofetch, fastfetch, ranger
-- **Languages**: Python 3, Go, Lua, Node.js (via Homebrew)
-- **Media**: Spotify, yt-dlp, ffmpeg
+- **Communication**: Slack, Discord
+- **Terminals & Shells**: Kitty, Nushell, Zsh, Fish
+- **Development CLIs**: GitHub CLI, git, lazygit, direnv, act, tmux, zellij
+- **Editors & Nix tooling**: Neovim, Vim, nil, nixd, nixpkgs-fmt
+- **Core CLI tools**: curl, wget, ripgrep, fzf, eza, fd, zoxide, tree, jq, yq, delta
+- **System & file tools**: htop, btop, bottom, neofetch, fastfetch, ranger, p7zip
+- **Languages & runtimes**: Node.js 22, Yarn, Lua, uv
+- **Media & transfer**: yt-dlp, ffmpeg, aria2
+- **Virtualization**: Vagrant, Packer
+- **Productivity**: Obsidian, Bitwarden CLI
 - **Fonts**: Nerd Fonts (Fira Code, JetBrains Mono, Meslo LG, Hack)
 
 ### GUI Applications (via Homebrew Cask)
@@ -282,16 +283,18 @@ All user programs are configured in `modules/home/programs/`:
 - **Browsers**: Brave, Google Chrome, Zen Browser
 - **Terminals**: iTerm2, Ghostty, Tabby
 - **Productivity**: Notion, Raycast
-- **File Sharing**: qBittorrent, Motrix
+- **File Sharing/Downloads**: qBittorrent, Motrix, JDownloader
 - **Containers**: OrbStack
-- **System Tools**: Karabiner Elements, KeepassXC, Bitwarden
-- **VPN**: Tailscale
+- **System Tools**: Karabiner Elements, KeepassXC, Bitwarden, balenaEtcher
+- **VPN & Networking**: Tailscale, Cloudflare WARP, Wireshark
+- **Security testing**: Burp Suite, Metasploit, Angry IP Scanner
+- **Media/Creator tools**: IINA, HandBrake, Audacity, OBS, DaVinci Resolve
 - **Fonts**: SF Mono, SF Pro, Maple Mono, SF Symbols
 
 ### Development Tools (via Home Manager)
 
-- **Infrastructure**: Ansible
-- **Cloud**: Google Cloud SDK (with GKE auth plugin)
+- **Infrastructure & security**: Ansible, gitleaks
+- **Cloud**: AWS CLI, Google Cloud SDK (with GKE auth plugin)
 - **Databases**: PostgreSQL, MariaDB
 - **VPN**: Tailscale
 
@@ -514,6 +517,8 @@ nixos-configs-mac/
 │           ├── tmux.nix               # Tmux
 │           ├── clock-rs.nix          # Clock-rs menu bar app
 │           ├── antigravity.nix        # Antigravity
+│           ├── hazel.nix              # Hazel config restore
+│           ├── hazel-backup/          # Hazel rule/plist backup data
 │           └── htop.nix               # Htop
 └── README.md                    # This file
 ```

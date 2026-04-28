@@ -12,10 +12,6 @@
   find = "fd";
   grep = "rg";
   top  = "btop";
-  # System maintenance
-  update = "darwin-rebuild switch --flake ~/Documents/Coding/nixos-configs-mac";
-  upgrade = "cd ~/Documents/Coding/nixos-configs-mac && nix flake update && darwin-rebuild switch --flake .";
-  cleanup = "brew cleanup && rm -rf ~/Library/Caches/*";
 
   # Git shortcuts
   g  = "git";
@@ -86,3 +82,4 @@
   cleanup  = "nix-collect-garbage -d";
 
   # Navigation
+}

@@ -40,5 +40,4 @@ User: `jaxon`, Hosts: `maple`.
 ## Gotchas
 - `onActivation.cleanup = "zap"` removes any Homebrew app NOT in the casks list
 - Terragrunt has a custom overlay in flake.nix (build fix)
-- `electron-36.9.5` is permitted insecure in nixpkgs config
 - Empty dirs at `~/.config/<app>/` can block home-manager symlinks — delete them

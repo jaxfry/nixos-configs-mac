@@ -2,11 +2,6 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    # Retained for currently used GUI tooling still depending on this Electron build.
-    "electron-36.9.5"
-  ];
-
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
@@ -17,21 +12,15 @@
   environment.systemPackages = (with pkgs; [
     # Communication
     slack
-    zoom-us
     discord
     # teams
 
     # Shell, Terminals
     nushell
     kitty
-    alacritty
-
-    # Browsers
-    firefox
 
     # Development Tools
     gh
-    devbox
 
     # Productivity
     lazygit
@@ -39,9 +28,6 @@
     direnv
     obsidian
     bitwarden-cli
-
-    # Note-taking and documentation
-    joplin-desktop
 
     # Editors
     neovim
@@ -77,9 +63,6 @@
 
     # File management
     ranger
-
-    # Screenshot tools
-    flameshot
 
     # languages and runtimes
     uv

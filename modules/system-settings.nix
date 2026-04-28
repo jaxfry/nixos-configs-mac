@@ -87,7 +87,7 @@
 
       # Screenshot settings
       screencapture = {
-        location = "~/Downloads";
+        location = "~/Pictures/Screenshots";
         type = "png";
         disable-shadow = true;
       };

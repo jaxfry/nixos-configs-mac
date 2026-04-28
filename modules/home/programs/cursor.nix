@@ -251,7 +251,7 @@ in
         // Git
         "eamodio.gitlens",
         "mhutchie.git-graph",
-        "github.vscode-github-actions,
+        "github.vscode-github-actions",
 
         // UI & Themes
         "pkief.material-icon-theme",
@@ -334,4 +334,3 @@ in
     echo "Cursor extensions: $INSTALLED_COUNT installed, $SKIPPED_COUNT already present"
   '';
 }
-
