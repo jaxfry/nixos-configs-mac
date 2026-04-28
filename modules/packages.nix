@@ -202,6 +202,10 @@
       "maven"
       "openjdk"
       "anomalyco/tap/opencode"
+      "nuclei"
+      "platformio"
+      "spicetify-cli"
+      "kismetwireless/kismet/kismet"
     ];
 
     taps = [
@@ -212,9 +216,12 @@
       "supabase/tap"
       "anomalyco/tap"
       "manaflow-ai/cmux"
+      "kismetwireless/kismet"
     ];
 
     casks = [
+      "kicad"
+      "ollama"
       "cursor"
       "visual-studio-code"
       "intellij-idea-ce"

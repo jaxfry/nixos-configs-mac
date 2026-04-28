@@ -206,6 +206,8 @@ The following applications are strictly managed outside of Nix/Homebrew and must
 - Better Display
 - CleanShot X
 - Dropover
+- Hazel
+- Cold Turkey Blocker
 
 After the first build completes, verify everything is working:
 
