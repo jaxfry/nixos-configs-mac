@@ -19,6 +19,10 @@
     ./modules/home/programs/claude.nix
   ];
 
+  # Enable nix-index for command-not-found and comma
+  programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
+
   # Create Screenshots directory for macOS screenshots
   # Use activation script to ensure directory exists and has correct permissions
   home.activation.createScreenshotsDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

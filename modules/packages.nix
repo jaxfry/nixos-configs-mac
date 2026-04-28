@@ -113,6 +113,22 @@
   ]);
 
   home-manager.users.${config.system.primaryUser}.home.packages = with pkgs; [
+    # Custom packaged GUI apps
+    (stdenvNoCC.mkDerivation {
+      pname = "hayase";
+      version = "6.4.60";
+      src = fetchurl {
+        url = "https://api.hayase.watch/files/mac-hayase-6.4.60-mac.zip";
+        sha256 = "65f662764cf74d57ce4f4ec25e9279d0b1a8ec5aad1295085808a803e9e59a70";
+      };
+      dontUnpack = true;
+      nativeBuildInputs = [ unzip ];
+      installPhase = ''
+        mkdir -p $out/Applications
+        unzip $src -d $out/Applications/
+      '';
+    })
+
     # CLI helpers
     nnn
     zsh-completions

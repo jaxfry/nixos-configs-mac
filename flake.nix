@@ -18,9 +18,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    
+    # nix-index-database for comma and command-not-found
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim}:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim, nix-index-database }:
   let
     # ============================================================================
     # Configuration Variables - Edit these to customize your setup
@@ -107,7 +111,10 @@
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { };
           home-manager.users.${username} = import (self + "/home.nix");
-          home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
+          home-manager.sharedModules = [ 
+            nixvim.homeModules.nixvim 
+            nix-index-database.hmModules.nix-index
+          ];
         }
       ];
       specialArgs = { };
