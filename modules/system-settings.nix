@@ -110,6 +110,32 @@
           ShowAMPM = false;
         };
 
+        # Free Cmd+Space for Raycast by disabling Spotlight shortcuts.
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            "64" = {
+              enabled = false;
+            };
+            "65" = {
+              enabled = false;
+            };
+          };
+        };
+
+        # Set Zen as default web browser for HTTP/HTTPS links.
+        "com.apple.LaunchServices/com.apple.launchservices.secure" = {
+          LSHandlers = [
+            {
+              LSHandlerURLScheme = "http";
+              LSHandlerRoleAll = "app.zen-browser.zen";
+            }
+            {
+              LSHandlerURLScheme = "https";
+              LSHandlerRoleAll = "app.zen-browser.zen";
+            }
+          ];
+        };
+
         # Require password immediately after sleep or screen saver begins
         "com.apple.screensaver" = {
           askForPassword = 1;

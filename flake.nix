@@ -109,6 +109,7 @@
           networking.hostName = hostname;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.extraSpecialArgs = { };
           home-manager.users.${username} = import (self + "/home.nix");
           home-manager.sharedModules = [ 

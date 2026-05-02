@@ -3,16 +3,6 @@
 {
   programs.git = {
     enable = true;
-    
-    # Enables git-delta
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        side-by-side = true;
-        line-numbers = true;
-      };
-    };
 
     settings = {
       user = {
@@ -40,11 +30,11 @@
       merge = {
         conflictstyle = "diff3";
       };
-      
+
       diff = {
         colorMoved = "default";
       };
-      
+
       push = {
         autoSetupRemote = true;
         default = "current";
@@ -55,8 +45,7 @@
         hooksPath = "~/.config/git/hooks";
       };
     };
-    
-    # Add a global ignores array
+
     ignores = [
       ".DS_Store"
       "._*"
@@ -75,5 +64,14 @@
       ".cache/"
     ];
   };
-}
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      side-by-side = true;
+      line-numbers = true;
+    };
+  };
+}

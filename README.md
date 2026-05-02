@@ -440,7 +440,7 @@ update
 Edit `modules/home/programs/zsh.nix` for shell configuration:
 
 - **Powerlevel10k prompt**: Configured in `modules/home/programs/zsh.nix` (`~/.p10k.zsh` is managed by Home Manager)
-- **Custom shell functions**: Add to `programs.zsh.initExtra`
+- **Custom shell functions**: Add to `programs.zsh.initContent`
 
 **Shell aliases** are in `modules/aliases.nix`:
 

@@ -10,7 +10,6 @@
   cd   = "z";
   du   = "dust";
   find = "fd";
-  grep = "rg";
   top  = "btop";
 
   # Git shortcuts

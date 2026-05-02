@@ -320,16 +320,26 @@ in
       exit 0
     fi
 
+    # Skip when CLI is not usable in this activation context.
+    if ! "$ANTIGRAVITY_CLI" --version >/dev/null 2>&1; then
+      echo "Warning: Antigravity CLI is not usable right now. Skipping automatic extension installation."
+      exit 0
+    fi
+
     # Uninstall spell checker if present
     echo "Removing spell checker extension if installed..."
     "$ANTIGRAVITY_CLI" --uninstall-extension "streetsidesoftware.code-spell-checker" 2>/dev/null || true
 
     # Get list of already installed extensions
-    INSTALLED_EXTS=$("$ANTIGRAVITY_CLI" --list-extensions 2>/dev/null || echo "")
+    if ! INSTALLED_EXTS=$("$ANTIGRAVITY_CLI" --list-extensions 2>/dev/null); then
+      echo "Warning: Unable to list Antigravity extensions. Skipping automatic extension installation."
+      exit 0
+    fi
 
     # Install only missing extensions
     INSTALLED_COUNT=0
     SKIPPED_COUNT=0
+    FAILED_COUNT=0
 
     for ext in ${builtins.concatStringsSep " " (map (ext: "\"${ext}\"") antigravityExtensions)}; do
       if echo "$INSTALLED_EXTS" | grep -q "^$ext$"; then
@@ -337,15 +347,18 @@ in
         SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
       else
         echo "Installing extension: $ext"
-        if "$ANTIGRAVITY_CLI" --install-extension "$ext" 2>/dev/null; then
+        if "$ANTIGRAVITY_CLI" --install-extension "$ext" >/dev/null 2>&1; then
           INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
         else
+          FAILED_COUNT=$((FAILED_COUNT + 1))
           echo "  ⚠ Failed to install: $ext"
+          echo "  ⚠ Stopping Antigravity extension installs for now (CLI/marketplace likely unavailable in activation context)."
+          break
         fi
       fi
     done
 
     echo ""
-    echo "Antigravity extensions: $INSTALLED_COUNT installed, $SKIPPED_COUNT already present"
+    echo "Antigravity extensions: $INSTALLED_COUNT installed, $SKIPPED_COUNT already present, $FAILED_COUNT failed"
   '';
 }
