@@ -11,7 +11,6 @@
 
   environment.systemPackages = (with pkgs; [
     # Communication
-    slack
     discord
     # teams
 
@@ -56,7 +55,7 @@
     iproute2mac
     fd
     zoxide
-    du-dust # dust package in nix
+    dust # disk usage tool
     delta
     tealdeer # tldr client in rust
     p7zip
@@ -67,6 +66,7 @@
     # languages and runtimes
     uv
     yarn
+    bun
     nodejs_22
     jq
     yq
@@ -111,6 +111,10 @@
 
     # CLI helpers
     nnn
+    claude-code
+    gemini-cli
+    subfinder
+    gobuster
     zsh-completions
 
     # Productivity
@@ -160,11 +164,11 @@
       "yt-dlp"
       "maven"
       "openjdk"
-      "anomalyco/tap/opencode"
+      "opencode"
       "nuclei"
       "platformio"
       "spicetify-cli"
-      "kismetwireless/kismet/kismet"
+      # "kismetwireless/kismet/kismet" # Temporarily disabled: formula is unavailable in Homebrew
     ];
 
     taps = [
@@ -173,21 +177,21 @@
       "keith/formulae"
       "mmazzarolo/formulae"
       "supabase/tap"
-      "anomalyco/tap"
-      "manaflow-ai/cmux"
-      "kismetwireless/kismet"
+      # "anomalyco/tap" # Not required while using Homebrew core opencode formula
+      # "manaflow-ai/cmux" # Not required while using Homebrew core cmux cask
+      # "kismetwireless/kismet" # Not required while kismet formula is unavailable
     ];
 
     casks = [
       "kicad"
-      "ollama"
+      "ollama-app"
       "cursor"
       "visual-studio-code"
       "intellij-idea-ce"
       "autodesk-fusion"
       "raycast"
       "bitwarden"
-      "zen-browser"
+      "zen"
       "google-chrome"
       "brave-browser"
       "iterm2"
@@ -198,19 +202,19 @@
       "cloudflare-warp"
       "burp-suite"
       "angry-ip-scanner"
-      "metasploit"
+      # "metasploit" # Temporarily disabled: requires Rosetta 2 on Apple Silicon
       "wireshark-app"
       "iina"
-      "handbrake"
+      "handbrake-app"
       "audacity"
       "obs"
-      "davinci-resolve"
-      "sdrpp"
-      "sdrangel"
+      # "davinci-resolve" # Temporarily disabled: cask is unavailable in Homebrew
+      # "sdrpp" # Temporarily disabled: cask is unavailable in Homebrew
+      # "sdrangel" # Temporarily disabled: cask is unavailable in Homebrew
       "bambu-studio"
       "jdownloader"
       "iloader"
-      "prism-launcher"
+      "prismlauncher"
       "karabiner-elements"
       "tailscale-app"
       "ghostty"
@@ -221,14 +225,13 @@
       "font-sf-mono"
       "font-sf-pro"
       "sf-symbols"
-      "tabby"
+      # "tabby" # Temporarily disabled: upstream release asset is 404 in Homebrew cask
       "spotify"
-      "keepassxc"
       "balenaetcher"
       "mark-text"
-      "manaflow-ai/cmux/cmux"
+      "cmux"
       "antigravity"
-      #"claude-code" # installed via npm: npm install -g @anthropic-ai/claude-code
+      # "claude-code" # Provided by nix package: pkgs.claude-code
       # "codex"  # installed via npm: @openai/codex
       # "openclaw"
       # "dia"

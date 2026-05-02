@@ -113,7 +113,7 @@
           home-manager.users.${username} = import (self + "/home.nix");
           home-manager.sharedModules = [ 
             nixvim.homeModules.nixvim 
-            nix-index-database.hmModules.nix-index
+            nix-index-database.homeModules.nix-index
           ];
         }
       ];

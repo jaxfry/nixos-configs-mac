@@ -35,6 +35,31 @@
     chmod 755 "$HOME/Pictures/Screenshots" 2>/dev/null || true
   '';
 
+  # Install/update claudish globally via npm
+  home.activation.installClaudish = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    npm_bin=""
+    if command -v npm >/dev/null 2>&1; then
+      npm_bin="$(command -v npm)"
+    elif [ -x "${pkgs.nodejs_22}/bin/npm" ]; then
+      npm_bin="${pkgs.nodejs_22}/bin/npm"
+    fi
+
+    if [ -z "$npm_bin" ]; then
+      echo "Warning: npm not found. Skipping claudish installation."
+      exit 0
+    fi
+
+    mkdir -p "$HOME/.local"
+    echo "Installing global npm package: claudish"
+    NPM_CONFIG_PREFIX="$HOME/.local" "$npm_bin" install -g claudish@latest claudish
+  '';
+
+  # Install/update Camber CLI
+  home.activation.installCamberCli = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    echo "Installing Camber CLI..."
+    bash <(curl -sL https://cli.cambercloud.com/install-v2.sh) || echo "Note: Camber CLI installation requires user interaction or may have failed"
+  '';
+
   # Global git pre-commit hook — gitleaks secret scanning on every commit
   home.file.".config/git/hooks/pre-commit" = {
     executable = true;

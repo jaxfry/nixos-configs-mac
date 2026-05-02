@@ -82,7 +82,7 @@ in
       export PATH="''${KREW_ROOT:-$HOME/.krew}/bin:$HOME/.local/bin:$PATH"
 
       # fzf configuration
-      export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+      export FZF_DEFAULT_COMMAND=""rg --files --hidden --follow --glob "!.git/*"'
       export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
       # Homebrew
@@ -112,24 +112,24 @@ in
     # Full Powerlevel10k profile tuned for fast DevOps workflows.
 
     typeset -g POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-    typeset -g POWERLEVEL9K_MODE='nerdfont-complete'
+    typeset -g POWERLEVEL9K_MODE=""nerdfont-complete'
     typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
     typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
     typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
     # Keep segments compact and clean.
     typeset -g POWERLEVEL9K_BACKGROUND=clear
-    typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
-    typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
-    typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=' '
-    typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=' '
-    typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
-    typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=''
+    typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""'
+    typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""'
+    typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="" '
+    typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="" '
+    typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=""'
+    typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=""'
 
     # Two-line prompt with an explicit command line marker.
-    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
-    typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX=''
-    typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=''
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""'
+    typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX=""'
+    typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=""'
 
     # Prompt layout.
     typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
@@ -157,42 +157,42 @@ in
     )
 
     # Core look.
-    typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND='${c.sapphire}'
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_FOREGROUND='${c.green}'
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_FOREGROUND='${c.red}'
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION='>'
-    typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION='x'
+    typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=""${c.sapphire}'
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_FOREGROUND=""${c.green}'
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_FOREGROUND=""${c.red}'
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_VIINS_CONTENT_EXPANSION="">'
+    typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_VIINS_CONTENT_EXPANSION=""x'
 
     # Directory: readable and compact.
-    typeset -g POWERLEVEL9K_DIR_FOREGROUND='${c.text}'
-    typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='${c.subtext1}'
-    typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='${c.blue}'
+    typeset -g POWERLEVEL9K_DIR_FOREGROUND=""${c.text}'
+    typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=""${c.subtext1}'
+    typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=""${c.blue}'
     typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
     typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
     # Git status.
-    typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='git:'
-    typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='${c.green}'
-    typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='${c.yellow}'
-    typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='${c.peach}'
-    typeset -g POWERLEVEL9K_VCS_CONFLICTED_FOREGROUND='${c.red}'
+    typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=""git:'
+    typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=""${c.green}'
+    typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=""${c.yellow}'
+    typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=""${c.peach}'
+    typeset -g POWERLEVEL9K_VCS_CONFLICTED_FOREGROUND=""${c.red}'
 
     # Command execution and status.
     typeset -g POWERLEVEL9K_STATUS_OK=false
-    typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='${c.red}'
+    typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=""${c.red}'
     typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
     typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
-    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='${c.subtext1}'
+    typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=""${c.subtext1}'
 
     # Time.
-    typeset -g POWERLEVEL9K_TIME_FOREGROUND='${c.subtext1}'
-    typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
+    typeset -g POWERLEVEL9K_TIME_FOREGROUND=""${c.subtext1}'
+    typeset -g POWERLEVEL9K_TIME_FORMAT=""%D{%H:%M}'
     typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
 
     # Cloud/IaC context shown only when relevant commands are typed.
 
-    typeset -g POWERLEVEL9K_AWS_FOREGROUND='${c.peach}'
-    typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND='${c.sapphire}'
+    typeset -g POWERLEVEL9K_AWS_FOREGROUND=""${c.peach}'
+    typeset -g POWERLEVEL9K_GCLOUD_FOREGROUND=""${c.sapphire}'
 
     # Make risky contexts visually loud.
     typeset -g POWERLEVEL9K_AWS_CLASSES=(
@@ -207,16 +207,16 @@ in
       '*staging*' STAGING
       '*' DEFAULT
     )
-    typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND='${c.red}'
-    typeset -g POWERLEVEL9K_AWS_STAGING_FOREGROUND='${c.yellow}'
-    typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='${c.peach}'
-    typeset -g POWERLEVEL9K_GCLOUD_PROD_FOREGROUND='${c.red}'
-    typeset -g POWERLEVEL9K_GCLOUD_STAGING_FOREGROUND='${c.yellow}'
-    typeset -g POWERLEVEL9K_GCLOUD_DEFAULT_FOREGROUND='${c.sapphire}'
+    typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND=""${c.red}'
+    typeset -g POWERLEVEL9K_AWS_STAGING_FOREGROUND=""${c.yellow}'
+    typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=""${c.peach}'
+    typeset -g POWERLEVEL9K_GCLOUD_PROD_FOREGROUND=""${c.red}'
+    typeset -g POWERLEVEL9K_GCLOUD_STAGING_FOREGROUND=""${c.yellow}'
+    typeset -g POWERLEVEL9K_GCLOUD_DEFAULT_FOREGROUND=""${c.sapphire}'
 
     # User@host context.
-    typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
-    typeset -g POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='${c.subtext1}'
-    typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='${c.red}'
+    typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE=""%n@%m'
+    typeset -g POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=""${c.subtext1}'
+    typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND=""${c.red}'
   '';
 }
