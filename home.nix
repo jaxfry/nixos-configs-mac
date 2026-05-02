@@ -57,7 +57,7 @@
   # Install/update Camber CLI
   home.activation.installCamberCli = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     echo "Installing Camber CLI..."
-    export PATH="${pkgs.curl}/bin:${pkgs.bash}/bin:$PATH"
+    export PATH="${pkgs.curl}/bin:${pkgs.bash}/bin:${pkgs.gnutar}/bin:${pkgs.gzip}/bin:$PATH"
     ${pkgs.bash}/bin/bash -c '${pkgs.curl}/bin/curl -sL https://cli.cambercloud.com/install-v2.sh | bash' || echo "Note: Camber CLI installation requires user interaction or may have failed"
   '';
 
