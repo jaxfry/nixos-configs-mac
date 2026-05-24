@@ -3,5 +3,4 @@ let
   jaxon = "ssh-ed25519 REPLACE_WITH_YOUR_PUBLIC_KEY";
 in
 {
-  "claudish-env.age".publicKeys = [ jaxon ];
 }

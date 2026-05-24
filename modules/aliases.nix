@@ -81,4 +81,8 @@
   cleanup  = "nix-collect-garbage -d";
 
   # Navigation
+
+  # AI & Editors
+  code        = "code";
+  open-code   = "opencode";
 }

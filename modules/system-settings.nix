@@ -45,7 +45,6 @@
         "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 0;     # disable beep sound when pressing volume up/down key
         "com.apple.keyboard.fnState" = false;    # Use media keys by default
-        AppleInterfaceStyle = "Dark";            # dark mode
 
         # Keyboard settings
         ApplePressAndHoldEnabled = false;        # Enable key repeat
@@ -76,7 +75,7 @@
       # Trackpad settings
       trackpad = {
         Clicking = true;  # Tap to click
-        TrackpadThreeFingerDrag = true;
+        TrackpadThreeFingerDrag = false;
       };
 
       # Screen saver settings

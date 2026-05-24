@@ -10,7 +10,6 @@ let
     "rust-lang.rust-analyzer"
 
     # AI Agents
-    "anthropic.claude-code"
 
     # Formatting & Linting
     "esbenp.prettier-vscode"

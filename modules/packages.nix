@@ -94,6 +94,10 @@
 
   home-manager.users.${config.system.primaryUser}.home.packages = with pkgs; [
     # Custom packaged GUI apps
+    (writeShellScriptBin "antigravity" ''
+      exec /usr/bin/open -a "Antigravity" --args "$@"
+    '')
+
     (stdenvNoCC.mkDerivation {
       pname = "hayase";
       version = "6.4.60";
@@ -111,7 +115,6 @@
 
     # CLI helpers
     nnn
-    claude-code
     gemini-cli
     subfinder
     gobuster
@@ -165,6 +168,7 @@
       "maven"
       "openjdk"
       "opencode"
+      "ghidra"
       "nuclei"
       "platformio"
       "spicetify-cli"
@@ -231,7 +235,6 @@
       "mark-text"
       "cmux"
       "antigravity"
-      # "claude-code" # Provided by nix package: pkgs.claude-code
       # "codex"  # installed via npm: @openai/codex
       # "openclaw"
       # "dia"

@@ -9,7 +9,6 @@ let
     "rust-lang.rust-analyzer"
 
     # AI Agents
-    "anthropic.claude-code"
 
     # Formatting & Linting
     "esbenp.prettier-vscode"
@@ -304,14 +303,12 @@ in
   home.activation.installAntigravityExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     echo "Installing Antigravity extensions..."
 
-    # Find Antigravity CLI - try common locations
+    # Find the real Antigravity CLI binary if it exists.
     ANTIGRAVITY_CLI=""
     if [ -f "/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity" ]; then
       ANTIGRAVITY_CLI="/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity"
     elif [ -f "$HOME/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity" ]; then
       ANTIGRAVITY_CLI="$HOME/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity"
-    elif command -v antigravity >/dev/null 2>&1; then
-      ANTIGRAVITY_CLI="antigravity"
     fi
 
     if [ -z "$ANTIGRAVITY_CLI" ]; then

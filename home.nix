@@ -17,7 +17,6 @@
     ./modules/home/programs/cursor.nix
     ./modules/home/programs/vscode.nix
     ./modules/home/programs/antigravity.nix
-    ./modules/home/programs/claude.nix
     ./modules/home/programs/hazel.nix
   ];
 
@@ -35,25 +34,6 @@
     chmod 755 "$HOME/Pictures/Screenshots" 2>/dev/null || true
   '';
 
-  # Install/update claudish globally via npm
-  home.activation.installClaudish = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    npm_bin=""
-    if command -v npm >/dev/null 2>&1; then
-      npm_bin="$(command -v npm)"
-    elif [ -x "${pkgs.nodejs_22}/bin/npm" ]; then
-      npm_bin="${pkgs.nodejs_22}/bin/npm"
-    fi
-
-    if [ -z "$npm_bin" ]; then
-      echo "Warning: npm not found. Skipping claudish installation."
-      exit 0
-    fi
-
-    mkdir -p "$HOME/.local"
-    echo "Installing global npm package: claudish"
-    NPM_CONFIG_PREFIX="$HOME/.local" "$npm_bin" install -g claudish@latest claudish
-  '';
-
   # Install/update Camber CLI
   home.activation.installCamberCli = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     echo "Installing Camber CLI..."
@@ -64,6 +44,12 @@
     else
       echo "Note: Camber CLI binary not found at expected location"
     fi
+  '';
+
+  # Install/update Antigravity CLI
+  home.activation.installAntigravityCli = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    echo "Installing Antigravity CLI..."
+    ${pkgs.bash}/bin/bash -c '${pkgs.curl}/bin/curl -fsSL https://antigravity.google/cli/install.sh | bash' 2>/dev/null || true
   '';
 
   # Global git pre-commit hook — gitleaks secret scanning on every commit
