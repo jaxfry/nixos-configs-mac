@@ -12,6 +12,7 @@
   environment.systemPackages = (with pkgs; [
     # Communication
     discord
+    chatgpt
     # teams
 
     # Shell, Terminals
@@ -25,8 +26,8 @@
     lazygit
     fish
     direnv
-    obsidian
     bitwarden-cli
+    # obsidian  # Broken in nixpkgs (dmg extraction fails on 1.13.4); using cask instead
 
     # Editors
     neovim
@@ -40,6 +41,7 @@
     btop
     zellij
     fastfetch
+    cmatrix
     git
     curl
     wget
@@ -55,6 +57,7 @@
     delta
     tealdeer # tldr client in rust
     p7zip
+    nmap
 
     # File management
     ranger
@@ -94,10 +97,10 @@
 
     (stdenvNoCC.mkDerivation {
       pname = "hayase";
-      version = "6.4.60";
+      version = "6.4.79";
       src = fetchurl {
-        url = "https://api.hayase.watch/files/mac-hayase-6.4.60-mac.zip";
-        sha256 = "65f662764cf74d57ce4f4ec25e9279d0b1a8ec5aad1295085808a803e9e59a70";
+        url = "https://api.hayase.watch/files/mac-hayase-6.4.79-mac.zip";
+        sha256 = "sha256-BFeUgvv0mxBQfmVJDW2nYn5WeidFnLOXjAG3+xRcLCc=";
       };
       dontUnpack = true;
       nativeBuildInputs = [ unzip ];
@@ -223,6 +226,7 @@
       "cmux"
       "antigravity"
       "telegram-desktop"
+      "obsidian"
       # "codex"  # installed via npm: @openai/codex
       # "openclaw"
       # "dia"
