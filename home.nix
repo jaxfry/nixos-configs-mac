@@ -8,7 +8,6 @@
     ./modules/home/programs/bat.nix
     ./modules/home/programs/fzf.nix
     ./modules/home/programs/tmux.nix
-    ./modules/home/programs/htop.nix
     ./modules/home/programs/ghostty.nix
     ./modules/home/programs/cmux.nix
     ./modules/home/programs/kitty.nix

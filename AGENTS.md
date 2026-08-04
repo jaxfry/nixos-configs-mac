@@ -24,7 +24,6 @@ All changes go in these files:
 ## Gotchas
 - `onActivation.cleanup = "zap"` — removes **any** Homebrew app not in cask list
 - `nix.enable = false` — Determinate Systems manages the nix daemon, not nix-darwin
-- Terragrunt overlay in `flake.nix` sets `GOWORK=off` to fix vendor dir build issue
 - Empty dirs at `~/.config/<app>/` block home-manager symlinks — delete them first
 - Disabled packages are commented with a reason: `# checkov  # Temporarily disabled due to...`
 - Global git pre-commit hook (gitleaks secret scanning) on every commit — set in `home.nix`

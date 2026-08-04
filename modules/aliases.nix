@@ -24,7 +24,6 @@
 
 
   # Utilities
-  h     = "htop";
 
   # Docker aliases
   d      = "docker";
@@ -71,7 +70,6 @@
   # Custom + System
   ytdlvp    = "yt-dlp --cookies youtube_cookies.txt --merge-output-format mp4 --no-overwrites";
   ytdlv     = "yt-dlp --cookies youtube_cookies.txt --merge-output-format mp4 --no-overwrites --no-playlist";
-  nf       = "neofetch";
   free     = "top -l 1 -s 0 | grep PhysMem";
   cpu      = "sysctl -a | grep machdep.cpu";
   gpu      = "system_profiler SPDisplaysDataType";

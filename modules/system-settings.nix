@@ -6,7 +6,10 @@
   # System settings and optimizations
   system = {
     defaults = {
-      menuExtraClock.Show24Hour = true; # show 24 hour clock
+      menuExtraClock = {
+        Show24Hour = true; # show 24 hour clock
+        ShowAMPM = false;
+      };
       # Dock settings
       dock = {
         autohide = true;
@@ -96,17 +99,6 @@
         # Disable annoying features
         "com.apple.AdLib" = {
           allowApplePersonalizedAdvertising = false;
-        };
-        
-        # Speed up Mission Control animations
-        "com.apple.dock" = {
-          expose-animation-duration = 0.1;
-        };
-        
-        # 24-hour clock in menu bar
-        "com.apple.menuextra.clock" = {
-          Show24Hour = true;
-          ShowAMPM = false;
         };
 
         # Free Cmd+Space for Raycast by disabling Spotlight shortcuts.

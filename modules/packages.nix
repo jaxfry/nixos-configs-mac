@@ -34,15 +34,11 @@
 
     # Shell tools
     zsh
-    zsh-completions
     bash-completion
 
     # Essential CLI tools
-    htop
-    btop   # Modern alternative to top
-    bottom # Modern alternative to htop
+    btop
     zellij
-    neofetch
     fastfetch
     git
     curl
@@ -73,13 +69,11 @@
     gnused
     coreutils
     meson
-    act
     lua
     nixpkgs-fmt
 
     # Media
     aria2
-    yt-dlp
     ffmpeg
     git-crypt
     nil
@@ -118,7 +112,6 @@
     gemini-cli
     subfinder
     gobuster
-    zsh-completions
 
     # Productivity
 
@@ -155,7 +148,6 @@
       "macos-trash"
       "git-lfs"
       "cmake"
-      "node"
       "pngquant"
       "oxipng"
       "act"
@@ -164,7 +156,6 @@
       "just"
       "qemu"
       "grpcurl"
-      "yt-dlp"
       "maven"
       "openjdk"
       "opencode"
@@ -176,10 +167,6 @@
     ];
 
     taps = [
-      "FelixKratz/formulae"
-      "mrkai77/cask"
-      "keith/formulae"
-      "mmazzarolo/formulae"
       "supabase/tap"
       # "anomalyco/tap" # Not required while using Homebrew core opencode formula
       # "manaflow-ai/cmux" # Not required while using Homebrew core cmux cask
