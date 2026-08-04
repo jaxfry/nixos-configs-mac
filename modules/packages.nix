@@ -235,6 +235,7 @@
       "mark-text"
       "cmux"
       "antigravity"
+      "telegram-desktop"
       # "codex"  # installed via npm: @openai/codex
       # "openclaw"
       # "dia"
