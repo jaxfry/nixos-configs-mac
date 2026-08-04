@@ -72,6 +72,11 @@ in
       # Load managed Powerlevel10k config
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+      # Prompt opencode in nix config dir with a description
+      add() {
+        cd ~/Documents/Coding/nixos-configs-mac && opencode "$*"
+      }
+
       # Custom prompt or other configurations
       export EDITOR="nvim"
       export VISUAL="nvim"
