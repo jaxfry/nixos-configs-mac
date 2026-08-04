@@ -3,6 +3,15 @@
   # Enable touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Share one sudo auth across all ttys/sessions so darwin-rebuild's internal
+  # sudo calls (launchctl asuser-wrapped defaults writes, home-manager
+  # activation, brew bundle) don't re-prompt for Touch ID after the initial
+  # `sudo darwin-rebuild`.
+  security.sudo.extraConfig = ''
+    Defaults timestamp_type=global
+    Defaults timestamp_timeout=60
+  '';
+
   # System settings and optimizations
   system = {
     defaults = {
