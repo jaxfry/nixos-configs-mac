@@ -5,6 +5,9 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+
+    # Use the flake's nixpkgs instead of nixvim's pinned one
+    nixpkgs.source = pkgs.path;
     
     # Basic options
     opts = {
