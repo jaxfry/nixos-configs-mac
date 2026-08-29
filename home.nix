@@ -11,11 +11,8 @@
     ./modules/home/programs/ghostty.nix
     ./modules/home/programs/cmux.nix
     ./modules/home/programs/kitty.nix
-    ./modules/home/programs/iterm2.nix
     ./modules/home/programs/tabby.nix
-    ./modules/home/programs/cursor.nix
     ./modules/home/programs/vscode.nix
-    ./modules/home/programs/antigravity.nix
     ./modules/home/programs/hazel.nix
   ];
 
@@ -43,12 +40,6 @@
     else
       echo "Note: Camber CLI binary not found at expected location"
     fi
-  '';
-
-  # Install/update Antigravity CLI
-  home.activation.installAntigravityCli = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    echo "Installing Antigravity CLI..."
-    ${pkgs.bash}/bin/bash -c '${pkgs.curl}/bin/curl -fsSL https://antigravity.google/cli/install.sh | bash' 2>/dev/null || true
   '';
 
   # Global git pre-commit hook — gitleaks secret scanning on every commit

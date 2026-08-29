@@ -41,7 +41,6 @@ in
         "docker"
         "macos"
         "colored-man-pages"
-        "ansible"
         "argocd"
         "gcloud"
         "fzf"

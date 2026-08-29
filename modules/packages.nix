@@ -11,8 +11,7 @@
 
   environment.systemPackages = (with pkgs; [
     # Communication
-    discord
-    chatgpt
+    # chatgpt  # nixpkgs package installs outdated "ChatGPT Classic" build; using official cask instead
     # teams
 
     # Shell, Terminals
@@ -82,19 +81,10 @@
     nil
     nixd
 
-    # Virtualization
-    vagrant
-    packer
-
     # VPN
   ]);
 
   home-manager.users.${config.system.primaryUser}.home.packages = with pkgs; [
-    # Custom packaged GUI apps
-    (writeShellScriptBin "antigravity" ''
-      exec /usr/bin/open -a "Antigravity" --args "$@"
-    '')
-
     (stdenvNoCC.mkDerivation {
       pname = "hayase";
       version = "6.4.79";
@@ -112,16 +102,12 @@
 
     # CLI helpers
     nnn
-    gemini-cli
-    subfinder
-    gobuster
 
     # Productivity
 
     # Containerization
 
     # Infrastructure as Code
-    ansible
     # checkov  # Temporarily disabled due to pyarrow build issue
     # pre-commit  # Temporarily disabled due to Swift build issues with clang 21.1.8
     gitleaks
@@ -163,23 +149,19 @@
       "openjdk"
       "opencode"
       "ghidra"
-      "nuclei"
       "platformio"
       "spicetify-cli"
-      # "kismetwireless/kismet/kismet" # Temporarily disabled: formula is unavailable in Homebrew
     ];
 
     taps = [
       "supabase/tap"
       # "anomalyco/tap" # Not required while using Homebrew core opencode formula
       # "manaflow-ai/cmux" # Not required while using Homebrew core cmux cask
-      # "kismetwireless/kismet" # Not required while kismet formula is unavailable
     ];
 
     casks = [
       "kicad"
       "ollama-app"
-      "cursor"
       "visual-studio-code"
       "intellij-idea-ce"
       "autodesk-fusion"
@@ -188,20 +170,18 @@
       "zen"
       "google-chrome"
       "brave-browser"
-      "iterm2"
       "notion"
       "qbittorrent"
       "orbstack"
-      "dockdoor"
       "cloudflare-warp"
       "burp-suite"
       "angry-ip-scanner"
-      # "metasploit" # Temporarily disabled: requires Rosetta 2 on Apple Silicon
       "wireshark-app"
       "iina"
       "handbrake-app"
       "audacity"
       "obs"
+      "osu"
       # "davinci-resolve" # Temporarily disabled: cask is unavailable in Homebrew
       # "sdrpp" # Temporarily disabled: cask is unavailable in Homebrew
       # "sdrangel" # Temporarily disabled: cask is unavailable in Homebrew
@@ -222,11 +202,10 @@
       # "tabby" # Temporarily disabled: upstream release asset is 404 in Homebrew cask
       "spotify"
       "balenaetcher"
-      "mark-text"
       "cmux"
-      "antigravity"
       "telegram-desktop"
       "obsidian"
+      "chatgpt"
       # "codex"  # installed via npm: @openai/codex
       # "openclaw"
       # "dia"
@@ -235,7 +214,6 @@
     masApps = {
       "The Unarchiver" = 425424353;
       "Amphetamine" = 937984704;
-      "rcmd" = 1596283165;
       "Betternet VPN" = 1028905953;
       "Xcode" = 497799835;
     };

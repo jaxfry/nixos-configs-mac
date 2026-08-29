@@ -203,7 +203,6 @@ This will:
 The following applications are strictly managed outside of Nix/Homebrew and must be manually installed:
 - Superwhisper
 - Bartender 6
-- Better Display
 - CleanShot X
 - Dropover
 - Hazel (app install only; rules/preferences restored from nix-managed backup)
